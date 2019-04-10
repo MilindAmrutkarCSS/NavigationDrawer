@@ -1,7 +1,9 @@
 package com.example.navigationdrawer;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -78,6 +80,16 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
+
+            case R.id.item1:
+                Toast.makeText(this, "Item 1 Selected", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.item2:
+                Toast.makeText(this, "Item 2 Selected", Toast.LENGTH_SHORT).show();
+                return true;
+
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -90,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
     private void loadFragments(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
